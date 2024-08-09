@@ -17,15 +17,17 @@ export default function EmojiList({ onSelect, onCloseModal }) {
       showsHorizontalScrollIndicator={Platform.OS === 'web'}
       data={emoji}
       contentContainerStyle={styles.listContainer}
-      renderItem={({ item, index }) => (
-        <Pressable
-          onPress={() => {
-            onSelect(item);
-            onCloseModal();
-          }}>
-          <Image source={item} key={index} style={styles.image} />
-        </Pressable>
-      )}
+      renderItem={({ item, index }) => {
+        return (
+          <Pressable
+            onPress={() => {
+              onSelect(item);
+              onCloseModal();
+            }}>
+            <Image source={item} key={index} style={styles.image} />
+          </Pressable>
+        );
+      }}
     />
   );
 }
